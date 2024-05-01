@@ -8,37 +8,36 @@
 
     <Button
         android:id="@+id/nextButton16"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Next"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:textAllCaps="false" />
 
     <Spinner
         android:id="@+id/interrogateDrop"
         android:layout_width="208dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="32dp"
         android:background="@android:drawable/btn_dropdown"
+        android:contentDescription="@string/interrogateChoice"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sheriffName" />
+        app:layout_constraintTop_toTopOf="@+id/interrogateLabel" />
 
     <TextView
         android:id="@+id/interrogateLabel"
-        android:layout_width="127dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="Interrogate"
-        android:textSize='24dp'
+        android:text="@string/interrogate"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deputyLabel" />
 
@@ -49,7 +48,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:textSize='24dp'
+        android:textSize='24sp'
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/interrogateDrop" />
@@ -67,12 +66,12 @@
 
     <TextView
         android:id="@+id/deputyLabel"
-        android:layout_width="142dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Sheriff"
-        android:textSize='24dp'
+        android:text="@string/sheriff"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

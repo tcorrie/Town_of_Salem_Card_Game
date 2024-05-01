@@ -8,12 +8,12 @@
 
     <Button
         android:id="@+id/nextButton19"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Next"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,10 +23,11 @@
     <Spinner
         android:id="@+id/healDrop"
         android:layout_width="208dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="32dp"
         android:background="@android:drawable/btn_dropdown"
+        android:contentDescription="@string/healChoice"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/doctorName" />
@@ -37,10 +38,10 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="Heal"
-        android:textSize='24dp'
+        android:text="@string/heal"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/doctorLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/witchLabel" />
 
     <TextView
         android:id="@+id/doctorName"
@@ -54,13 +55,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/doctorLabel"
+        android:id="@+id/witchLabel"
         android:layout_width="142dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Doctor"
-        android:textSize='24dp'
+        android:text="@string/doctor"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

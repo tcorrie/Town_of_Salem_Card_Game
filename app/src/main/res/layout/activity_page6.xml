@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Defender"
-        android:textSize="30dp"
+        android:text="@string/defender"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,51 +34,51 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="Choose Your Defense:"
-        android:textSize="30dp"
+        android:text="@string/defense"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/defenderLabel" />
 
     <RadioGroup
         android:id="@+id/defenseOptions"
-        android:layout_width="203dp"
-        android:layout_height="116dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/defenseMessage" >
+        app:layout_constraintTop_toBottomOf="@+id/defenseMessage">
 
         <RadioButton
             android:id="@+id/optionChainmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:text="Chainmail" />
+            android:text="@string/chainmail" />
 
         <RadioButton
             android:id="@+id/optionSidestep"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:text="Sidestep" />
+            android:text="@string/sidestep" />
 
         <RadioButton
             android:id="@+id/optionBackpedal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:text="Backpedal" />
+            android:text="@string/backpedal" />
     </RadioGroup>
 
     <Button
         android:id="@+id/buttonBattle"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Battle"
-        android:textSize="30dp"
+        android:text="@string/battle"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

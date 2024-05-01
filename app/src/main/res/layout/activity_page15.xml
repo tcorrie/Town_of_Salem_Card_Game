@@ -4,32 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:contentDescription="@string/vigilante"
     tools:context=".Page15">
 
     <Button
         android:id="@+id/nextButton15"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Next"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:textAllCaps="false" />
 
     <Spinner
         android:id="@+id/shootDrop"
         android:layout_width="208dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="24dp"
         android:background="@android:drawable/btn_dropdown"
+        android:contentDescription="@string/shootChoice"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/remainderarrowLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/remainderArrowLabel" />
 
     <TextView
         android:id="@+id/shootLabel"
@@ -37,20 +38,20 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="Shoot"
-        android:textSize='24dp'
+        android:text="@string/shoot"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/remainderarrowLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/remainderArrowLabel" />
 
     <TextView
-        android:id="@+id/remainderarrowLabel"
+        android:id="@+id/remainderArrowLabel"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:textAlignment="center"
-        android:textSize='24dp'
+        android:textSize='24sp'
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vigilanteName" />
@@ -72,8 +73,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Vigilante"
-        android:textSize='24dp'
+        android:text="@string/vigilante"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

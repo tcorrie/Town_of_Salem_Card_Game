@@ -3,7 +3,6 @@ package com.example.timothy.town_of_salem_card_game;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -30,18 +29,15 @@ public class Page6 extends AppCompatActivity {
         defense.check(R.id.optionChainmail);
         defender.setText(defenderName);
 
-        battle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int defenseChoice = defense.getCheckedRadioButtonId();
-                RadioButton method = findViewById(defenseChoice);
-                String defenseMethod = method.getText().toString();
-                Intent intent = new Intent(Page6.this,Page7.class);
-                intent.putExtra("result", "attack");
-                intent.putExtra("battle", new String[]{pirateWeapon, defenseMethod});
-                intent.putExtra("defender",defenderName);
-                startActivity(intent);
-            }
+        battle.setOnClickListener(v -> {
+            int defenseChoice = defense.getCheckedRadioButtonId();
+            RadioButton method = findViewById(defenseChoice);
+            String defenseMethod = method.getText().toString();
+            Intent intent = new Intent(Page6.this,Page7.class);
+            intent.putExtra("result", "attack");
+            intent.putExtra("battle", new String[]{pirateWeapon, defenseMethod});
+            intent.putExtra("defender",defenderName);
+            startActivity(intent);
         });
 
 

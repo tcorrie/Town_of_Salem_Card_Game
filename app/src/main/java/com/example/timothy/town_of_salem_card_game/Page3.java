@@ -38,10 +38,10 @@ public class Page3 extends AppCompatActivity {
         virtualValueNumber.setVisibility(View.INVISIBLE);
         editPlayersButton.setVisibility(View.INVISIBLE);
         startGameButton.setVisibility(View.INVISIBLE);
-        virtualValueLabel = (TextView)findViewById(R.id.virtualValueLabel);
+        virtualValueLabel = findViewById(R.id.virtualValueLabel);
         virtualValueLabel.setVisibility(View.INVISIBLE);
 
-        playerListSpinner = (Spinner)findViewById(R.id.playerListSpinner);
+        playerListSpinner = findViewById(R.id.playerListSpinner);
         playerListSpinner.setVisibility(View.VISIBLE);
 
         List<String> game_list = new ArrayList<>();
@@ -54,8 +54,8 @@ public class Page3 extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         playerListSpinner.setAdapter(adapter);
 
-        editNameArea = (TextView)findViewById(R.id.editNameArea);
-        editRoleSpinner = (Spinner)findViewById(R.id.editRoleSpinner);
+        editNameArea = findViewById(R.id.editNameArea);
+        editRoleSpinner = findViewById(R.id.editRoleSpinner);
         List<Role> roleList = new ArrayList<>(Arrays.asList(role_list));
         ArrayAdapter<Role> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, roleList);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -104,85 +104,72 @@ public class Page3 extends AppCompatActivity {
 
 
     public void init(){
-        editPlayersButton = (Button)findViewById(R.id.editPlayersButton);
-        editPlayersButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editPlayers();
-            }
-        });
+        editPlayersButton = findViewById(R.id.editPlayersButton);
+        editPlayersButton.setOnClickListener(v -> editPlayers());
 
-        startGameButton = (Button)findViewById(R.id.startGameButton);
-        startGameButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Metadata.alivePlayers = (ArrayList<Person>)Metadata.allPlayers.clone();
-                Metadata.numPlayers = Metadata.allPlayers.size();
-                int extraUses = RoleList.extraUses(Metadata.numPlayers);
-                for (Person person: Metadata.alivePlayers){
-                    switch (person.getKeyword()){
-                        case "Vigilante":
-                            person.setUses(1+extraUses);
-                            break;
-                        case "Investigator":
-                        case "Veteran":
-                        case "Consigliere":
-                        case "Janitor":
-                            person.setUses(2+extraUses);
-                            break;
-                        default:
-                            person.setUses(99);
-                    }
+        startGameButton = findViewById(R.id.startGameButton);
+        startGameButton.setOnClickListener(v -> {
+            //noinspection unchecked
+            Metadata.alivePlayers = (ArrayList<Person>)Metadata.allPlayers.clone();
+            Metadata.numPlayers = Metadata.allPlayers.size();
+            int extraUses = RoleList.extraUses(Metadata.numPlayers);
+            for (Person person: Metadata.alivePlayers){
+                switch (person.getKeyword()){
+                    case "Vigilante":
+                        person.setUses(1+extraUses);
+                        break;
+                    case "Investigator":
+                    case "Veteran":
+                    case "Consigliere":
+                    case "Janitor":
+                        person.setUses(2+extraUses);
+                        break;
+                    default:
+                        person.setUses(99);
                 }
-
-
-                Intent intent = new Intent(Page3.this, Page4.class);
-                startActivity(intent);
-
             }
+
+
+            Intent intent = new Intent(Page3.this, Page4.class);
+            startActivity(intent);
+
         });
 
         goBackButton = findViewById(R.id.goBackButton);
-        goBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playerList.setVisibility(View.VISIBLE);
-                virtualValueNumber.setVisibility(View.VISIBLE);
-                editPlayersButton.setVisibility(View.VISIBLE);
-                startGameButton.setVisibility(View.VISIBLE);
-                virtualValueLabel = (TextView)findViewById(R.id.virtualValueLabel);
-                virtualValueLabel.setVisibility(View.VISIBLE);
-                playerListSpinner.setVisibility(View.INVISIBLE);
-                editNameArea.setVisibility(View.INVISIBLE);
-                editRoleSpinner.setVisibility(View.INVISIBLE);
-                goBackButton.setVisibility(View.INVISIBLE);
-                saveChangesButton.setVisibility(View.INVISIBLE);
-            }
+        goBackButton.setOnClickListener(v -> {
+            playerList.setVisibility(View.VISIBLE);
+            virtualValueNumber.setVisibility(View.VISIBLE);
+            editPlayersButton.setVisibility(View.VISIBLE);
+            startGameButton.setVisibility(View.VISIBLE);
+            virtualValueLabel = findViewById(R.id.virtualValueLabel);
+            virtualValueLabel.setVisibility(View.VISIBLE);
+            playerListSpinner.setVisibility(View.INVISIBLE);
+            editNameArea.setVisibility(View.INVISIBLE);
+            editRoleSpinner.setVisibility(View.INVISIBLE);
+            goBackButton.setVisibility(View.INVISIBLE);
+            saveChangesButton.setVisibility(View.INVISIBLE);
         });
 
         saveChangesButton = findViewById(R.id.saveChangesButton);
-        saveChangesButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                int i = playerListSpinner.getSelectedItemPosition();
-                Metadata.allPlayers.set(i-1,new Person(editNameArea.getText().toString(),(Role)editRoleSpinner.getSelectedItem()));
-                playerList.setVisibility(View.VISIBLE);
-                virtualValueNumber.setVisibility(View.VISIBLE);
-                editPlayersButton.setVisibility(View.VISIBLE);
-                startGameButton.setVisibility(View.VISIBLE);
-                virtualValueLabel = (TextView)findViewById(R.id.virtualValueLabel);
-                virtualValueLabel.setVisibility(View.VISIBLE);
-                playerListSpinner.setVisibility(View.INVISIBLE);
-                editNameArea.setVisibility(View.INVISIBLE);
-                editRoleSpinner.setVisibility(View.INVISIBLE);
-                goBackButton.setVisibility(View.INVISIBLE);
-                saveChangesButton.setVisibility(View.INVISIBLE);
-                playerList.setText("");
-                for (Person person:Metadata.allPlayers){
-                    playerList.append(String.format("%s (%s)\n",person.getName(),person.getKeyword()));
-                }
-
+        saveChangesButton.setOnClickListener(v -> {
+            int i = playerListSpinner.getSelectedItemPosition();
+            Metadata.allPlayers.set(i-1,new Person(editNameArea.getText().toString(),(Role)editRoleSpinner.getSelectedItem()));
+            playerList.setVisibility(View.VISIBLE);
+            virtualValueNumber.setVisibility(View.VISIBLE);
+            editPlayersButton.setVisibility(View.VISIBLE);
+            startGameButton.setVisibility(View.VISIBLE);
+            virtualValueLabel = findViewById(R.id.virtualValueLabel);
+            virtualValueLabel.setVisibility(View.VISIBLE);
+            playerListSpinner.setVisibility(View.INVISIBLE);
+            editNameArea.setVisibility(View.INVISIBLE);
+            editRoleSpinner.setVisibility(View.INVISIBLE);
+            goBackButton.setVisibility(View.INVISIBLE);
+            saveChangesButton.setVisibility(View.INVISIBLE);
+            playerList.setText("");
+            for (Person person:Metadata.allPlayers){
+                playerList.append(String.format("%s (%s)\n",person.getName(),person.getKeyword()));
             }
+
         });
 
 
@@ -209,10 +196,10 @@ END BUTTON SECTION
         for (Person person: Metadata.allPlayers){
             Metadata.virtualValueSum+=person.getVirtualValue();
         }
-        virtualValueNumber = (TextView)findViewById(R.id.virtualValueNumber);
+        virtualValueNumber = findViewById(R.id.virtualValueNumber);
         virtualValueNumber.setText(String.format(Locale.US,"%d",Metadata.getVirtualValueSum()));
 
-        playerList = (TextView)findViewById(R.id.playerList);
+        playerList = findViewById(R.id.playerList);
         playerList.setText("");
         for (Person person:Metadata.allPlayers){
             playerList.append(String.format("%s (%s)\n",person.getName(),person.getKeyword()));

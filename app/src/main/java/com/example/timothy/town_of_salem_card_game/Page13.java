@@ -2,7 +2,6 @@ package com.example.timothy.town_of_salem_card_game;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -51,28 +50,25 @@ public class Page13 extends AppCompatActivity {
         mlDrop1.setAdapter(adapter1);
         mlDrop2.setAdapter(adapter2);
 
-        nButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String selection1 = mlDrop1.getSelectedItem().toString();
-                String selection2 = mlDrop2.getSelectedItem().toString();
-                if (selection1.equals(selection2)) {
-                    if (!selection1.equals("Pass")) Toast.makeText(Page13.this, "Selections cannot be the same.", Toast.LENGTH_SHORT).show();
-                    else startActivity(RoleList.toPage(Page13.this,"Witch"));
-                }
-                else {
-                    if (!selection1.equals("Roleblocked")) for (Person person : alivePlayers) {
-                        if (Objects.equals(person.getName(), selection1))
-                            person.addStatus("mauled");
-                        if (Objects.equals(person.getName(), selection2))
-                            person.addStatus("mauled");
-                        if (Objects.equals(person.getKeyword(), "Werewolf")) {
-                            person.addTarget(Metadata.findPerson("Name", selection1));
-                            person.addTarget(Metadata.findPerson("Name", selection2));
-                        }
+        nButton.setOnClickListener(v -> {
+            String selection1 = mlDrop1.getSelectedItem().toString();
+            String selection2 = mlDrop2.getSelectedItem().toString();
+            if (selection1.equals(selection2)) {
+                if (!selection1.equals("Pass")) Toast.makeText(Page13.this, "Selections cannot be the same.", Toast.LENGTH_SHORT).show();
+                else startActivity(RoleList.toPage(Page13.this,"Witch"));
+            }
+            else {
+                if (!selection1.equals("Roleblocked")) for (Person person : alivePlayers) {
+                    if (Objects.equals(person.getName(), selection1))
+                        person.addStatus("mauled");
+                    if (Objects.equals(person.getName(), selection2))
+                        person.addStatus("mauled");
+                    if (Objects.equals(person.getKeyword(), "Werewolf")) {
+                        person.addTarget(Metadata.findPerson("Name", selection1));
+                        person.addTarget(Metadata.findPerson("Name", selection2));
                     }
-                    startActivity(RoleList.toPage(Page13.this,"Witch"));
                 }
+                startActivity(RoleList.toPage(Page13.this,"Witch"));
             }
         });
 

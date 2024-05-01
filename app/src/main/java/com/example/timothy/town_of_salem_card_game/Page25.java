@@ -42,81 +42,72 @@ public class Page25 extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         lchDrop.setAdapter(adapter);
 
-        contButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean isThereMafia = Metadata.mafiaAlive.size()>0;
-                boolean isTheWWAlive = RoleList.stillAlive(RoleList.werewolf);
-                boolean isTheSKAlive = RoleList.stillAlive(RoleList.serial_killer);
-                boolean isTheWitchAlive = RoleList.stillAlive(RoleList.witch);
-                boolean isTheAmnesiacAlive = RoleList.stillAlive(RoleList.amnesiac);
-                boolean atLeastTwoPeople = alivePlayers.size()>=2;
+        contButton.setOnClickListener(v -> {
+            boolean isThereMafia = !Metadata.mafiaAlive.isEmpty();
+            boolean isTheWWAlive = RoleList.stillAlive(RoleList.werewolf);
+            boolean isTheSKAlive = RoleList.stillAlive(RoleList.serial_killer);
+            boolean isTheWitchAlive = RoleList.stillAlive(RoleList.witch);
+            boolean isTheAmnesiacAlive = RoleList.stillAlive(RoleList.amnesiac);
+            boolean atLeastTwoPeople = alivePlayers.size()>=2;
 
-                if ((isThereMafia || isTheWWAlive || isTheSKAlive || isTheWitchAlive || isTheAmnesiacAlive) && atLeastTwoPeople) {
+            if ((isThereMafia || isTheWWAlive || isTheSKAlive || isTheWitchAlive || isTheAmnesiacAlive) && atLeastTwoPeople) {
 
 
-                    String selection = lchDrop.getSelectedItem().toString();
+                String selection = lchDrop.getSelectedItem().toString();
 
-                    if (selection.equals("Pass")) {
-                        Metadata.resetMafia();
-                        incrementNight();
-                        Metadata.resetRoleBlocked();
-                        Intent intent = new Intent(Page25.this, Page4.class);
-                        startActivity(intent);
-                    } else {
-                        Metadata.resetRoleBlocked();
-                        Iterator<Person> i = alivePlayers.iterator();
-                        String lynchName = "";
-                        String lynchRole = "";
-                        while (i.hasNext()) {
-                            Person p = i.next();
-                            if (p.getName().equals(selection)) {
-                                lynchName = p.getName();
-                                lynchRole = p.getKeyword();
-                                p.clearStatus();
-                                p.addStatus("Lynch");
-                                if (RoleList.exists(RoleList.executioner) && Objects.equals(p.getName(), Metadata.exeTarget.getName())) {
-                                    Metadata.changeExeWin();
-                                    Toast.makeText(Page25.this, "Executioner has successfully lynched their target and has won!", Toast.LENGTH_SHORT).show();
-                                    Metadata.winners.add(findPerson("Role", "Executioner"));
-                                }
-                                Metadata.deadPlayers.add(p);
-                                i.remove();
+                if (selection.equals("Pass")) {
+                    Metadata.resetMafia();
+                    incrementNight();
+                    Metadata.resetRoleBlocked();
+                    Intent intent = new Intent(Page25.this, Page4.class);
+                    startActivity(intent);
+                } else {
+                    Metadata.resetRoleBlocked();
+                    Iterator<Person> i = alivePlayers.iterator();
+                    String lynchName = "";
+                    String lynchRole = "";
+                    while (i.hasNext()) {
+                        Person p = i.next();
+                        if (p.getName().equals(selection)) {
+                            lynchName = p.getName();
+                            lynchRole = p.getKeyword();
+                            p.clearStatus();
+                            p.addStatus("Lynch");
+                            if (RoleList.exists(RoleList.executioner) && Objects.equals(p.getName(), Metadata.exeTarget.getName())) {
+                                Metadata.changeExeWin();
+                                Toast.makeText(Page25.this, "Executioner has successfully lynched their target and has won!", Toast.LENGTH_SHORT).show();
+                                Metadata.winners.add(findPerson("Role", "Executioner"));
                             }
+                            Metadata.deadPlayers.add(p);
+                            i.remove();
                         }
-                        Intent intent;
-                        if (lynchRole.equals("Jester")) {
-                            Metadata.winners.add(findDeadPerson("Name", lynchName));
-                            intent = new Intent(Page25.this, Page27.class);
-                        } else {
-                            intent = new Intent(Page25.this, Page26.class);
-                        }
-                        intent.putExtra("lynched", new String[]{lynchName, lynchRole});
-                        startActivity(intent);
                     }
+                    Intent intent;
+                    if (lynchRole.equals("Jester")) {
+                        Metadata.winners.add(findDeadPerson("Name", lynchName));
+                        intent = new Intent(Page25.this, Page27.class);
+                    } else {
+                        intent = new Intent(Page25.this, Page26.class);
+                    }
+                    intent.putExtra("lynched", new String[]{lynchName, lynchRole});
+                    startActivity(intent);
                 }
-                else Toast.makeText(Page25.this, "The game is over. Please hit END GAME to continue.", Toast.LENGTH_LONG).show();
             }
+            else Toast.makeText(Page25.this, "The game is over. Please hit END GAME to continue.", Toast.LENGTH_LONG).show();
         });
 
         if (!RoleList.stillAlive(RoleList.mayor) || Metadata.mayorRevealed) mRevButton.setVisibility(View.INVISIBLE);
         else mRevButton.setVisibility(View.VISIBLE);
 
-        mRevButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Metadata.mayorReveals();
-                Toast.makeText(Page25.this, "Mayor has been revealed", Toast.LENGTH_SHORT).show();
-                mRevButton.setVisibility(View.INVISIBLE);
-            }
+        mRevButton.setOnClickListener(v -> {
+            Metadata.mayorReveals();
+            Toast.makeText(Page25.this, "Mayor has been revealed", Toast.LENGTH_SHORT).show();
+            mRevButton.setVisibility(View.INVISIBLE);
         });
 
-        egButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Page25.this, Page28.class);
-                startActivity(intent);
-            }
+        egButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Page25.this, Page28.class);
+            startActivity(intent);
         });
 
 

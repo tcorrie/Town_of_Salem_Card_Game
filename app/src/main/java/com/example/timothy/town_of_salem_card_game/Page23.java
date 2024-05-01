@@ -1,9 +1,8 @@
 package com.example.timothy.town_of_salem_card_game;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -24,14 +23,11 @@ public class Page23 extends AppCompatActivity {
         overMsg = findViewById(R.id.endNightMessage);
         nButton = findViewById(R.id.nextButton23);
         overMsg.setText(String.format(Locale.US,"Night %d is over. Press Next to proceed.", Metadata.night));
-        nButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playTheNight();
+        nButton.setOnClickListener(v -> {
+            playTheNight();
 
-                Intent intent = new Intent(Page23.this, Page24.class);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(Page23.this, Page24.class);
+            startActivity(intent);
         });
     }
     private void playTheNight(){
@@ -39,7 +35,7 @@ public class Page23 extends AppCompatActivity {
             String status = person.getStatus();
             if(Objects.equals(person.getKeyword(),"Veteran") && status.contains("alert")){
                 for (Person p2: Metadata.alivePlayers){
-                    if (p2.getTargets().size()>0) {
+                    if (!p2.getTargets().isEmpty()) {
                         for (Person pTarg: p2.getTargets()){
                             if (Objects.equals(pTarg.getKeyword(),"Veteran")) p2.addStatus("caught");
                         }
@@ -67,7 +63,7 @@ public class Page23 extends AppCompatActivity {
                 if (status.contains("caught")) attackedBy.add("caught");
                 if (status.contains("plunder")) attackedBy.add("plunder");
                 if (status.contains("shot")) attackedBy.add("shot");
-                if (attackedBy.size()>0){
+                if (!attackedBy.isEmpty()){
                     int indx = (int)(Math.random()*attackedBy.size());
                     String attackedKW = attackedBy.get(indx);
                     switch (attackedKW){

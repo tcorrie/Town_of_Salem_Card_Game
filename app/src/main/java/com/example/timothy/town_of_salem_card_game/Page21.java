@@ -1,8 +1,7 @@
 package com.example.timothy.town_of_salem_card_game;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -52,18 +51,15 @@ public class Page21 extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         tgtDrop.setAdapter(adapter);
 
-        nButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String selection = tgtDrop.getSelectedItem().toString();
-                if (!selection.equals("Pass")){
-                    for (Person person: alivePlayers){
-                        if(Objects.equals(person.getName(), selection)) Metadata.setExeTarget(person);
-                    }
-
+        nButton.setOnClickListener(v -> {
+            String selection = tgtDrop.getSelectedItem().toString();
+            if (!selection.equals("Pass")){
+                for (Person person: alivePlayers){
+                    if(Objects.equals(person.getName(), selection)) Metadata.setExeTarget(person);
                 }
-                startActivity(RoleList.toPage(Page21.this,"Amnesiac"));
+
             }
+            startActivity(RoleList.toPage(Page21.this,"Amnesiac"));
         });
 
 

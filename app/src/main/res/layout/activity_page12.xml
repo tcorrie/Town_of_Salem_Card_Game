@@ -8,28 +8,28 @@
 
     <Button
         android:id="@+id/nextButton12"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Next"
+        android:contentDescription="@string/next"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:textAllCaps="false" />
 
     <Spinner
         android:id="@+id/stabDrop"
         android:layout_width="208dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="32dp"
         android:background="@android:drawable/btn_dropdown"
+        android:contentDescription="@string/stabChoice"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/serialkillerName" />
+        app:layout_constraintTop_toTopOf="@+id/stabLabel" />
 
     <TextView
         android:id="@+id/stabLabel"
@@ -37,24 +37,24 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="Stab"
-        android:textSize='24dp'
+        android:text="@string/stab"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/serialkillerLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/serialKillerLabel" />
 
     <TextView
-        android:id="@+id/serialkillerLabel"
-        android:layout_width="142dp"
-        android:layout_height="50dp"
+        android:id="@+id/serialKillerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Serial Killer"
-        android:textSize='24dp'
+        android:text="@string/serialKiller"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/serialkillerName"
+        android:id="@+id/serialKillerName"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginEnd="16dp"

@@ -1,5 +1,6 @@
 package com.example.timothy.town_of_salem_card_game;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +35,48 @@ public class Page16 extends AppCompatActivity {
         Person sheriff = Metadata.findPerson("Role", "Sheriff");
         assert sheriff != null;
         shrName.setText(sheriff.getName());
+        final ArrayAdapter<String> adapter = getStringArrayAdapter(sheriff);
+        intDrop.setAdapter(adapter);
+        intDrop.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String focus = intDrop.getSelectedItem().toString();
+                if (focus.equals("Pass")) intRes.setText(R.string.noInterrogateSheriff);
+                else if (focus.equals("Roleblocked")) intRes.setText(R.string.roleblockedSheriff);
+                else {
+                    if(Metadata.night %2 == 0 && Objects.equals(Objects.requireNonNull(Metadata.findPerson("Name", focus)).getKeyword(),"Werewolf")){
+                        intRes.setText(R.string.sheriffTargetEvil);
+                    }
+                    else intRes.setText(String.format("Your target is %s.", Objects.requireNonNull(Metadata.findPerson("Name", focus)).getSheriffResult()));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //Nothing here. Should always have a selection.
+            }
+        });
+
+
+
+        nButton.setOnClickListener(v -> {
+            String selection = intDrop.getSelectedItem().toString();
+            if (!selection.equals("Roleblocked")){
+                for (Person person: alivePlayers){
+                    if(Objects.equals(person.getKeyword(), "Sheriff")) person.addTarget(Metadata.findPerson("Name",selection));
+                }
+
+            }
+            startActivity(RoleList.toPage(Page16.this,"Investigator"));
+        });
+
+
+
+
+    }
+
+    @NonNull
+    private ArrayAdapter<String> getStringArrayAdapter(Person sheriff) {
         List<String> targetList = new ArrayList<>();
 
         if (!sheriff.isRoleBlocked){
@@ -49,45 +92,6 @@ public class Page16 extends AppCompatActivity {
 
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,targetList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        intDrop.setAdapter(adapter);
-        intDrop.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String focus = intDrop.getSelectedItem().toString();
-                if (focus.equals("Pass")) intRes.setText((String)"You are not interrogating anyone.");
-                else if (focus.equals("Roleblocked")) intRes.setText((String)"Roleblocked: cannot interrogate tonight.");
-                else {
-                    if(Metadata.night %2 == 0 && Objects.equals(Objects.requireNonNull(Metadata.findPerson("Name", focus)).getKeyword(),"Werewolf")){
-                        intRes.setText((String)"Your target is Evil.");
-                    }
-                    else intRes.setText(String.format("Your target is %s.", Objects.requireNonNull(Metadata.findPerson("Name", focus)).getSheriffResult()));
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                //Nothing here. Should always have a selection.
-            }
-        });
-
-
-
-        nButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String selection = intDrop.getSelectedItem().toString();
-                if (!selection.equals("Roleblocked")){
-                    for (Person person: alivePlayers){
-                        if(Objects.equals(person.getKeyword(), "Sheriff")) person.addTarget(Metadata.findPerson("Name",selection));
-                    }
-
-                }
-                startActivity(RoleList.toPage(Page16.this,"Investigator"));
-            }
-        });
-
-
-
-
+        return adapter;
     }
 }

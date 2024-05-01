@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -95,9 +94,6 @@ public class Page11 extends AppCompatActivity {
                         cResult.setText(String.format("The mafia will attempt to clean %s.", killed));
                         person.addStatus("clean");
                     }
-                    //if (Objects.equals(person.getKeyword(), "Janitor")) {
-                    //    person.addTarget(Metadata.findPerson("Name", killed));
-                    //}
                 }
                 break;
             default:
@@ -128,12 +124,7 @@ public class Page11 extends AppCompatActivity {
                 break;
         }
 
-        nexButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(RoleList.toPage(Page11.this,"Serial Killer"));
-            }
-        });
+        nexButton.setOnClickListener(v -> startActivity(RoleList.toPage(Page11.this,"Serial Killer")));
 
     }
 }

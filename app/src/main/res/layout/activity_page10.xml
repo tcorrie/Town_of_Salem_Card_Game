@@ -28,19 +28,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/consigsLeft" />
+        app:layout_constraintTop_toBottomOf="@+id/consigliereLeft" />
 
     <Button
         android:id="@+id/actionButton"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Action!"
+        android:text="@string/action"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:textAllCaps="false" />
 
@@ -49,67 +48,67 @@
         android:layout_width="198dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
         android:background="@android:drawable/btn_dropdown"
+        android:contentDescription="@string/invChoice"
         android:spinnerMode="dropdown"
-        android:textSize='12dp'
+        android:textSize='12sp'
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/blackmailDrop" />
+        app:layout_constraintTop_toTopOf="@+id/consigliereInvLabel" />
 
     <Spinner
         android:id="@+id/killDrop"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
         android:background="@android:drawable/btn_dropdown"
+        android:contentDescription="@string/killChoice"
         android:spinnerMode="dropdown"
-        android:textSize='12dp'
+        android:textSize='12sp'
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/investigateDrop" />
+        app:layout_constraintTop_toTopOf="@+id/killLabel" />
 
     <Spinner
         android:id="@+id/blackmailDrop"
         android:layout_width="198dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="32dp"
         android:background="@android:drawable/btn_dropdown"
+        android:contentDescription="@string/blackmailChoice"
         android:spinnerMode="dropdown"
-        android:textSize='12dp'
+        android:textSize='12sp'
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/janitorName" />
+        app:layout_constraintTop_toTopOf="@+id/blackmailLabel" />
 
     <TextView
-        android:id="@+id/consigliereinvLabel"
-        android:layout_width="145dp"
-        android:layout_height="45dp"
+        android:id="@+id/consigliereInvLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:text="Investigate"
-        android:textSize='24dp'
+        android:text="@string/investigate"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/blackmailLabel" />
 
     <TextView
         android:id="@+id/killLabel"
         android:layout_width="145dp"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:text="Kill"
-        android:textSize='24dp'
+        android:text="@string/kill"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/consigliereinvLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/consigliereInvLabel" />
 
     <TextView
         android:id="@+id/blackmailLabel"
-        android:layout_width="145dp"
-        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="Blackmail"
-        android:textSize='24dp'
+        android:text="@string/blackmail"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/janitorLabel" />
 
@@ -118,22 +117,20 @@
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
         android:textAlignment="textEnd"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/consigliereName" />
+        app:layout_constraintTop_toTopOf="@+id/janitorLabel" />
 
     <TextView
         android:id="@+id/consigliereName"
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
         android:textAlignment="textEnd"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/blackmailerName" />
+        app:layout_constraintTop_toTopOf="@+id/consigliereLabel" />
 
     <TextView
         android:id="@+id/blackmailerName"
@@ -148,39 +145,39 @@
 
     <TextView
         android:id="@+id/blackmailerLabel"
-        android:layout_width="145dp"
-        android:layout_height="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Blackmailer"
-        android:textSize='24dp'
+        android:text="@string/blackmailer"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/consigliereLabel"
-        android:layout_width="146dp"
-        android:layout_height="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Consigliere"
-        android:textSize='24dp'
+        android:text="@string/consigliere"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/blackmailerLabel" />
 
     <TextView
         android:id="@+id/janitorLabel"
-        android:layout_width="145dp"
-        android:layout_height="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Janitor"
-        android:textSize='24dp'
+        android:text="@string/janitor"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/consigliereLabel" />
 
     <TextView
-        android:id="@+id/consigsLeft"
+        android:id="@+id/consigliereLeft"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

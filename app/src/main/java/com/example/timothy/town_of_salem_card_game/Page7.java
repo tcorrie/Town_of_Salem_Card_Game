@@ -3,7 +3,6 @@ package com.example.timothy.town_of_salem_card_game;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -43,14 +42,9 @@ public class Page7 extends AppCompatActivity {
             else duelResult.setText(String.format("The pirate has lost the battle against %s.", defenderName));
             duelResult.append(String.format("\n\nPirate Wins: %s",Metadata.pirateWins));
         }
-        else if (pirateAction.equals("Passed")) duelResult.setText((String)"The pirate decided not to attack.");
+        else if (pirateAction.equals("Passed")) duelResult.setText(R.string.noAttackPirate);
 
-        nextPerson.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(RoleList.toPage(Page7.this,"Medium"));
-            }
-        });
+        nextPerson.setOnClickListener(v -> startActivity(RoleList.toPage(Page7.this,"Medium")));
 
     }
 }

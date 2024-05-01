@@ -8,12 +8,12 @@
 
     <Button
         android:id="@+id/continueButton25"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Continue"
+        android:text="@string/continueGame"
         app:layout_constraintBottom_toTopOf="@+id/endgameButton25"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,28 +21,27 @@
 
     <Button
         android:id="@+id/endgameButton25"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="End Game"
+        android:text="@string/endGame"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:textAllCaps="false" />
 
     <Spinner
         android:id="@+id/lynchDrop"
         android:layout_width="208dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="32dp"
         android:background="@android:drawable/btn_dropdown"
+        android:contentDescription="@string/lynchChoice"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/daytimeLabel" />
+        app:layout_constraintTop_toTopOf="@+id/lynchLabel" />
 
     <TextView
         android:id="@+id/daytimeLabel"
@@ -51,8 +50,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="Daytime:"
-        android:textSize="24dp"
+        android:text="@string/daytime"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -63,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:text="Lynch"
+        android:text="@string/lynch"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/daytimeLabel" />
@@ -75,7 +74,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
-        android:text="Mayor Reveal"
+        android:text="@string/mayorReveal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lynchDrop" />

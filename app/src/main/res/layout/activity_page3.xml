@@ -25,7 +25,7 @@
         android:layout_marginEnd="36dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="48dp"
-        android:text="Save Changes"
+        android:text="@string/saveChanges"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
         android:layout_height="48dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="36dp"
-        android:text="Start Game"
+        android:text="@string/startGame"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:textAllCaps="false" />
@@ -50,31 +50,30 @@
         android:layout_height="48dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="28dp"
-        android:text="Edit Player"
+        android:text="@string/editPlayer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:textAllCaps="false" />
 
     <TextView
         android:id="@+id/virtualValueLabel"
-        android:layout_width="202dp"
-        android:layout_height="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="36dp"
-        android:text="Virtual Value Sum:"
+        android:text="@string/virtualSum"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/startGameButton"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/virtualValueNumber"
-        android:layout_width="62dp"
-        android:layout_height="34dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="68dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="24dp"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/editPlayersButton"
-        app:layout_constraintStart_toEndOf="@+id/virtualValueLabel" />
+        app:layout_constraintStart_toEndOf="@+id/virtualValueLabel"
+        app:layout_constraintTop_toTopOf="@+id/virtualValueLabel" />
 
     <Spinner
         android:id="@+id/playerListSpinner"
@@ -94,6 +93,8 @@
         android:layout_height="41dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
+        android:autofillHints=""
+        android:hint="@string/nameChoice"
         android:ems="10"
         android:inputType="textPersonName"
         android:visibility="invisible"
@@ -117,7 +118,7 @@
         android:layout_marginEnd="36dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="48dp"
-        android:text="Go Back"
+        android:text="@string/goBack"
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"

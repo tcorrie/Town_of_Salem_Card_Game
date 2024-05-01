@@ -32,7 +32,7 @@ public class Page15 extends AppCompatActivity {
         vigName = findViewById(R.id.vigilanteName);
         shtDrop = findViewById(R.id.shootDrop);
         nButton = findViewById(R.id.nextButton15);
-        remArrow = findViewById(R.id.remainderarrowLabel);
+        remArrow = findViewById(R.id.remainderArrowLabel);
         shtLabel = findViewById(R.id.shootLabel);
 
         Person vigilante = Metadata.findPerson("Role", "Vigilante");
@@ -62,23 +62,20 @@ public class Page15 extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         shtDrop.setAdapter(adapter);
 
-        nButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (shtDrop.getVisibility()==View.VISIBLE){
-                    String selection = shtDrop.getSelectedItem().toString();
-                    if (!selection.equals("Roleblocked") && !selection.equals("Pass")) {
-                        for (Person person : alivePlayers) {
-                            if (Objects.equals(person.getName(), selection)) person.addStatus("shot");
-                            if (Objects.equals(person.getKeyword(), "Vigilante")) {
-                                person.addTarget(Metadata.findPerson("Name", selection));
-                                person.useUse();
-                            }
+        nButton.setOnClickListener(v -> {
+            if (shtDrop.getVisibility()==View.VISIBLE){
+                String selection = shtDrop.getSelectedItem().toString();
+                if (!selection.equals("Roleblocked") && !selection.equals("Pass")) {
+                    for (Person person : alivePlayers) {
+                        if (Objects.equals(person.getName(), selection)) person.addStatus("shot");
+                        if (Objects.equals(person.getKeyword(), "Vigilante")) {
+                            person.addTarget(Metadata.findPerson("Name", selection));
+                            person.useUse();
                         }
                     }
                 }
-                startActivity(RoleList.toPage(Page15.this,"Sheriff"));
             }
+            startActivity(RoleList.toPage(Page15.this,"Sheriff"));
         });
 
 
