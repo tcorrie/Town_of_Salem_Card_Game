@@ -3,7 +3,6 @@ package com.example.timothy.town_of_salem_card_game;
 import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.content.Intent;
@@ -38,8 +37,8 @@ public class Page1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page1);
         startGameButton = findViewById(R.id.startGameButton);
-        loadTeamButton = findViewById(R.id.loadbutton);
-        premadeGroupLists = findViewById(R.id.premadelistDrop);
+        loadTeamButton = findViewById(R.id.loadButton);
+        premadeGroupLists = findViewById(R.id.preMadeListDrop);
 
         am = getAssets();
 
@@ -50,48 +49,42 @@ public class Page1 extends AppCompatActivity {
                 if (!li.next().contains(".txt")) li.remove();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,sampleGames);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         premadeGroupLists.setAdapter(adapter);
 
 
-        startGameButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Page1.this,Page2.class);
-                startActivity(intent);
-            }
+        startGameButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Page1.this,Page2.class);
+            startActivity(intent);
         });
 
-        loadTeamButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    sb = new StringBuilder();
-                    is = am.open(premadeGroupLists.getSelectedItem().toString());
-                    br = new BufferedReader(new InputStreamReader(is));
-                    while ((line = br.readLine()) != null){
-                        sb.append(line).append(System.lineSeparator());
-                    }
-                    line = sb.toString();
-                    lines = line.split(System.lineSeparator());
-
-                    for (String l:lines){
-                        String[] player = l.split(",");
-                        Person person = new Person(player[0], Objects.requireNonNull(RoleList.findRole(player[1])));
-                        Metadata.allPlayers.add(person);
-                        if (Objects.equals(person.getAlignment(), "Mafia")) Metadata.mafiaAlive.add(person);
-                    }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
+        loadTeamButton.setOnClickListener(v -> {
+            try {
+                sb = new StringBuilder();
+                is = am.open(premadeGroupLists.getSelectedItem().toString());
+                br = new BufferedReader(new InputStreamReader(is));
+                while ((line = br.readLine()) != null){
+                    sb.append(line).append(System.lineSeparator());
                 }
-                Intent intent = new Intent(Page1.this, Page3.class);
-                startActivity(intent);
+                line = sb.toString();
+                lines = line.split(System.lineSeparator());
 
+                for (String l:lines){
+                    String[] player = l.split(",");
+                    Person person = new Person(player[0], Objects.requireNonNull(RoleList.findRole(player[1])));
+                    Metadata.allPlayers.add(person);
+                    if (Objects.equals(person.getAlignment(), "Mafia")) Metadata.mafiaAlive.add(person);
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace(System.out);
             }
+            Intent intent = new Intent(Page1.this, Page3.class);
+            startActivity(intent);
+
         });
 
 

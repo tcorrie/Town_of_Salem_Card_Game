@@ -8,37 +8,37 @@
 
     <Button
         android:id="@+id/nextButton18"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Next"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:textAllCaps="false" />
 
     <Spinner
         android:id="@+id/investigateDrop"
         android:layout_width="208dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="24dp"
         android:background="@android:drawable/btn_dropdown"
+        android:contentDescription="@string/investigateChoice"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/investigationsLeft" />
 
     <TextView
         android:id="@+id/investigateLabel"
-        android:layout_width="127dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="Investigate"
-        android:textSize='24dp'
+        android:text="@string/investigate"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/investigationsLeft" />
 
@@ -50,7 +50,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:textAlignment="center"
-        android:textSize='24dp'
+        android:textSize='24sp'
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:textAlignment="center"
-        android:textSize='24dp'
+        android:textSize='24sp'
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/investigatorName" />
@@ -82,12 +82,12 @@
 
     <TextView
         android:id="@+id/investigatorLabel"
-        android:layout_width="142dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Investigator"
-        android:textSize='24dp'
+        android:text="@string/investigator"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

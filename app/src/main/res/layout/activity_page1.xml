@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/welcomeSign1"
-        android:layout_width="320dp"
-        android:layout_height="37dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="@string/welcomeSign1"
@@ -30,37 +30,34 @@
 
     <Button
         android:id="@+id/startGameButton"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
         android:text="@string/startGame"
-        android:textSize="24dp"
-        tools:textAllCaps="false"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        tools:textAllCaps="false" />
 
     <Button
-        android:id="@+id/loadbutton"
+        android:id="@+id/loadButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="48dp"
-        android:text="Load"
+        android:text="@string/load"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeSign2" />
 
     <Spinner
-        android:id="@+id/premadelistDrop"
-        android:layout_width="0dp"
+        android:id="@+id/preMadeListDrop"
+        android:layout_width="192dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginEnd="32dp"
+        android:contentDescription="@string/loadHelp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/loadbutton"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeSign2" />
+        app:layout_constraintTop_toTopOf="@+id/loadButton" />
 </android.support.constraint.ConstraintLayout>

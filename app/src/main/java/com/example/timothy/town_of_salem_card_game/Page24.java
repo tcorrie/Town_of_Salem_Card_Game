@@ -1,9 +1,8 @@
 package com.example.timothy.town_of_salem_card_game;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -42,18 +41,15 @@ public class Page24 extends AppCompatActivity {
 
         }
 
-        nButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                for (Person person: Metadata.alivePlayers){
-                    person.clearTargets();
-                    person.clearStatus();
-                    person.setRoleBlocked(false);
-                }
-                Metadata.resetMafia();
-                Intent intent = new Intent(Page24.this, Page25.class);
-                startActivity(intent);
+        nButton.setOnClickListener(v -> {
+            for (Person person: Metadata.alivePlayers){
+                person.clearTargets();
+                person.clearStatus();
+                person.setRoleBlocked(false);
             }
+            Metadata.resetMafia();
+            Intent intent = new Intent(Page24.this, Page25.class);
+            startActivity(intent);
         });
 
     }

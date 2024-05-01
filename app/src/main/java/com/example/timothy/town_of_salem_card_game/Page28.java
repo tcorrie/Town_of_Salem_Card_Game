@@ -1,9 +1,8 @@
 package com.example.timothy.town_of_salem_card_game;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,7 +18,7 @@ public class Page28 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page28);
 
-        winners = findViewById(R.id.winresult);
+        winners = findViewById(R.id.winResult);
         eButton28 = findViewById(R.id.exitButton);
 
 
@@ -51,7 +50,7 @@ public class Page28 extends AppCompatActivity {
             else if (roleKW.equals("Werewolf")) Metadata.winners.add(Metadata.findPerson("Role", "Werewolf"));
             else if (roleKW.equals("Witch")) Metadata.winners.add(Metadata.findPerson("Role", "Witch"));
         }
-        else if (Metadata.alivePlayers.size()==0) assert true;
+        else if (Metadata.alivePlayers.isEmpty()) assert true;
         else{
             if (RoleList.stillAlive(RoleList.serial_killer)) Metadata.winners.add(Metadata.findPerson("Role", "Serial Killer"));
             else if (RoleList.stillAlive(RoleList.werewolf)) Metadata.winners.add(Metadata.findPerson("Role", "Werewolf"));
@@ -75,20 +74,17 @@ public class Page28 extends AppCompatActivity {
             }
         }
 
-        if (Metadata.winners.size()>=1) {
+        if (!Metadata.winners.isEmpty()) {
             winners.append("Winners:\n\n");
             for (Person person : Metadata.winners) {
                 winners.append(String.format("%s\n", person.description()));
             }
         }
         else winners.append("The game has ended in a draw.");
-        eButton28.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                startActivity(new Intent(Page28.this, Page29.class));
-                System.exit(0);
-            }
+        eButton28.setOnClickListener(v -> {
+            finish();
+            startActivity(new Intent(Page28.this, Page29.class));
+            System.exit(0);
         });
 
 

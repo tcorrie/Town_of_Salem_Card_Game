@@ -8,26 +8,25 @@
 
     <Button
         android:id="@+id/nextButton8"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:text="Next"
+        android:text="@string/next"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seanceInfo"
         tools:textAllCaps="false" />
 
     <Button
         android:id="@+id/seanceButton"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="Seance"
+        android:text="@string/seance1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seanceDrop"
@@ -36,13 +35,13 @@
     <Spinner
         android:id="@+id/seanceDrop"
         android:layout_width="228dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="32dp"
         android:background="@android:drawable/btn_dropdown"
+        android:contentDescription="@string/seanceChoice"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mediumName" />
+        app:layout_constraintTop_toTopOf="@+id/seanceLabel" />
 
     <TextView
         android:id="@+id/mediumName"
@@ -57,23 +56,23 @@
 
     <TextView
         android:id="@+id/seanceLabel"
-        android:layout_width="94dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="Seance"
-        android:textSize='24dp'
+        android:text="@string/seance"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mediumLabel" />
 
     <TextView
         android:id="@+id/mediumLabel"
-        android:layout_width="94dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Medium"
-        android:textSize='24dp'
+        android:text="@string/medium"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

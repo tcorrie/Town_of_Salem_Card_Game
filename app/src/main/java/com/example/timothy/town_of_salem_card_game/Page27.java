@@ -1,9 +1,8 @@
 package com.example.timothy.town_of_salem_card_game;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -25,8 +24,8 @@ public class Page27 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page27);
-        line1 = findViewById(R.id.hasbeenlynched27);
-        line2 = findViewById(R.id.rolewas27);
+        line1 = findViewById(R.id.hasBeenLynched27);
+        line2 = findViewById(R.id.roleWas27);
         contButton = findViewById(R.id.continueButton27);
         egButton = findViewById(R.id.endgameButton27);
         hntDrop = findViewById(R.id.hauntDrop);
@@ -51,46 +50,40 @@ public class Page27 extends AppCompatActivity {
 
 
 
-        contButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Metadata.incrementNight();
-                Metadata.resetMafia();
-                String selection = hntDrop.getSelectedItem().toString();
-                Iterator<Person> i = alivePlayers.iterator();
-                while(i.hasNext()) {
-                    Person p = i.next();
-                    if (p.getName().equals(selection)) {
-                        p.clearStatus();
-                        p.addStatus("Haunt");
-                        Metadata.deadPlayers.add(p);
-                        i.remove();
-                    }
+        contButton.setOnClickListener(v -> {
+            Metadata.incrementNight();
+            Metadata.resetMafia();
+            String selection = hntDrop.getSelectedItem().toString();
+            Iterator<Person> i = alivePlayers.iterator();
+            while(i.hasNext()) {
+                Person p = i.next();
+                if (p.getName().equals(selection)) {
+                    p.clearStatus();
+                    p.addStatus("Haunt");
+                    Metadata.deadPlayers.add(p);
+                    i.remove();
                 }
-
-                Intent intent = new Intent(Page27.this, Page4.class);
-                startActivity(intent);
             }
+
+            Intent intent = new Intent(Page27.this, Page4.class);
+            startActivity(intent);
         });
 
 
-        egButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String selection = hntDrop.getSelectedItem().toString();
-                Iterator<Person> i = alivePlayers.iterator();
-                while(i.hasNext()) {
-                    Person p = i.next();
-                    if (p.getName().equals(selection)) {
-                        p.clearStatus();
-                        p.addStatus("Haunt");
-                        Metadata.deadPlayers.add(p);
-                        i.remove();
-                    }
+        egButton.setOnClickListener(v -> {
+            String selection = hntDrop.getSelectedItem().toString();
+            Iterator<Person> i = alivePlayers.iterator();
+            while(i.hasNext()) {
+                Person p = i.next();
+                if (p.getName().equals(selection)) {
+                    p.clearStatus();
+                    p.addStatus("Haunt");
+                    Metadata.deadPlayers.add(p);
+                    i.remove();
                 }
-                Intent intent = new Intent(Page27.this, Page28.class);
-                startActivity(intent);
             }
+            Intent intent = new Intent(Page27.this, Page28.class);
+            startActivity(intent);
         });
     }
 }

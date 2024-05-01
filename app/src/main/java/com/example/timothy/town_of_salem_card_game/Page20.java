@@ -1,8 +1,7 @@
 package com.example.timothy.town_of_salem_card_game;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -54,21 +53,18 @@ public class Page20 extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         grdDrop.setAdapter(adapter);
 
-        nButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String selection = grdDrop.getSelectedItem().toString();
-                if (!selection.equals("Roleblocked") && !selection.equals("Pass")){
-                    for (Person person: alivePlayers){
-                        if(Objects.equals(person.getName(), selection)) person.addStatus("guard");
-                        if(Objects.equals(person.getKeyword(), "Bodyguard")) person.addTarget(Metadata.findPerson("Name",selection));
-                        Metadata.lastGuarded = Metadata.findPerson("Name",selection);
-                    }
-
+        nButton.setOnClickListener(v -> {
+            String selection = grdDrop.getSelectedItem().toString();
+            if (!selection.equals("Roleblocked") && !selection.equals("Pass")){
+                for (Person person: alivePlayers){
+                    if(Objects.equals(person.getName(), selection)) person.addStatus("guard");
+                    if(Objects.equals(person.getKeyword(), "Bodyguard")) person.addTarget(Metadata.findPerson("Name",selection));
+                    Metadata.lastGuarded = Metadata.findPerson("Name",selection);
                 }
-                else Metadata.lastGuarded=Metadata.noOne;
-                startActivity(RoleList.toPage(Page20.this,"Executioner"));
+
             }
+            else Metadata.lastGuarded=Metadata.noOne;
+            startActivity(RoleList.toPage(Page20.this,"Executioner"));
         });
 
 

@@ -9,13 +9,14 @@
     <Spinner
         android:id="@+id/hauntDrop"
         android:layout_width="208dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="32dp"
         android:background="@android:drawable/btn_dropdown"
+        android:contentDescription="@string/hauntChoice"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rolewas27" />
+        app:layout_constraintTop_toBottomOf="@+id/roleWas27" />
 
     <TextView
         android:id="@+id/hauntLabel"
@@ -23,58 +24,57 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:text="Haunt"
+        android:text="@string/haunt"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rolewas27" />
+        app:layout_constraintTop_toBottomOf="@+id/roleWas27" />
 
     <Button
         android:id="@+id/endgameButton27"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="End Game"
+        android:text="@string/endGame"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:textAllCaps="false" />
 
     <Button
         android:id="@+id/continueButton27"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Begin Night Phase"
+        android:text="@string/beginNightPhase"
         app:layout_constraintBottom_toTopOf="@+id/endgameButton27"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:textAllCaps="false" />
 
     <TextView
-        android:id="@+id/rolewas27"
+        android:id="@+id/roleWas27"
         android:layout_width="0dp"
         android:layout_height="62dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hasbeenlynched27" />
+        app:layout_constraintTop_toBottomOf="@+id/hasBeenLynched27" />
 
     <TextView
-        android:id="@+id/hasbeenlynched27"
+        android:id="@+id/hasBeenLynched27"
         android:layout_width="0dp"
         android:layout_height="62dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

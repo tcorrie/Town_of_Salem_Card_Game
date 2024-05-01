@@ -9,47 +9,46 @@
     <Spinner
         android:id="@+id/duelDrop"
         android:layout_width="228dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="32dp"
         android:background="@android:drawable/btn_dropdown"
+        android:contentDescription="@string/plunder"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pirateName" />
+        app:layout_constraintTop_toTopOf="@+id/duelLabel" />
 
     <TextView
         android:id="@+id/pirateLabel"
-        android:layout_width="75dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Pirate"
-        android:textSize="24dp"
+        android:text="@string/pirate"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/duelLabel"
-        android:layout_width="75dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:textSize="24dp"
-        android:text="Duel"
+        android:text="@string/duel"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pirateLabel" />
 
     <Button
         android:id="@+id/buttonAttack"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Attack"
+        android:text="@string/attack"
         app:layout_constraintBottom_toTopOf="@+id/labelOR"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:textAllCaps="false" />
 
@@ -60,8 +59,8 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="OR"
-        android:textSize="30dp"
+        android:text="@string/OR"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/passButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -79,56 +78,55 @@
 
     <Button
         android:id="@+id/passButton"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="96dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Pass"
+        android:text="@string/pass"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:textAllCaps="false" />
 
     <TextView
         android:id="@+id/labelWeapon"
-        android:layout_width="245dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
-        android:text="Choose Your Weapon:"
+        android:text="@string/chooseWeapon"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/duelLabel" />
 
     <RadioGroup
         android:id="@+id/weaponChoice"
-        android:layout_width="114dp"
-        android:layout_height="82dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/labelWeapon">
 
         <RadioButton
             android:id="@+id/choiceRapier"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:text="Rapier" />
+            android:text="@string/rapier" />
 
         <RadioButton
             android:id="@+id/choicePistol"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:text="Pistol" />
+            android:text="@string/pistol" />
 
         <RadioButton
-            android:id="@+id/choiceSchimtar"
+            android:id="@+id/choiceScimitar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:text="Scimitar" />
+            android:text="@string/scimitar" />
     </RadioGroup>
 </android.support.constraint.ConstraintLayout>

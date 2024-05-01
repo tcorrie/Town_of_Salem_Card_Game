@@ -32,7 +32,7 @@ public class Page10 extends AppCompatActivity {
         bmName = findViewById(R.id.blackmailerName);
         csName = findViewById(R.id.consigliereName);
         jaName = findViewById(R.id.janitorName);
-        conLeft = findViewById(R.id.consigsLeft);
+        conLeft = findViewById(R.id.consigliereLeft);
         cleLeft = findViewById(R.id.cleansLeft);
         rbInfo = findViewById(R.id.roleBlockInfo);
         bmDrop = findViewById(R.id.blackmailDrop);
@@ -44,7 +44,7 @@ public class Page10 extends AppCompatActivity {
         bmerLabel = findViewById(R.id.blackmailerLabel);
         bmLabel = findViewById(R.id.blackmailLabel);
         consreLabel = findViewById(R.id.consigliereLabel);
-        invLabel = findViewById(R.id.consigliereinvLabel);
+        invLabel = findViewById(R.id.consigliereInvLabel);
         janorLabel = findViewById(R.id.janitorLabel);
         kllLabel = findViewById(R.id.killLabel);
 
@@ -86,7 +86,7 @@ public class Page10 extends AppCompatActivity {
                 bmDrop.setAdapter(adapter1);
             }
             else{
-                rbInfo.setText((String)"Blackmailer is roleblocked and cannot blackmail tonight.");
+                rbInfo.setText(R.string.roleblockedBlackmailer);
                 bmDrop.setAdapter(adapter4);
             }
         }
@@ -108,7 +108,7 @@ public class Page10 extends AppCompatActivity {
                 if (consigliere.getUses()==0) invDrop.setVisibility(View.INVISIBLE);
             }
             else{
-                rbInfo.setText((String)"Consigliere is roleblocked and cannot investigate tonight.");
+                rbInfo.setText(R.string.roleblockedConsigliere);
                 invDrop.setAdapter(adapter4);
             }
         }
@@ -126,7 +126,7 @@ public class Page10 extends AppCompatActivity {
                 cleLeft.setText(String.format(Locale.US,"Cleans left: %d",janitor.getUses()));
             }
             else{
-                rbInfo.setText((String)"Janitor is roleblocked and cannot clean tonight.");
+                rbInfo.setText(R.string.roleblockedJanitor);
             }
         }
         else{
@@ -146,30 +146,27 @@ public class Page10 extends AppCompatActivity {
             kDrop.setAdapter(adapter4);
         }
 
-        actButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (bmDrop.getVisibility()==View.VISIBLE) blackmailerTarget=bmDrop.getSelectedItem().toString();
-                else blackmailerTarget="";
-                if (invDrop.getVisibility()== View.VISIBLE) consigliereTarget=invDrop.getSelectedItem().toString();
-                else consigliereTarget="";
+        actButton.setOnClickListener(v -> {
+            if (bmDrop.getVisibility()==View.VISIBLE) blackmailerTarget=bmDrop.getSelectedItem().toString();
+            else blackmailerTarget="";
+            if (invDrop.getVisibility()== View.VISIBLE) consigliereTarget=invDrop.getSelectedItem().toString();
+            else consigliereTarget="";
 
 
-                if (RoleList.stillAlive(RoleList.janitor)){
-                    assert janitor != null;
-                    if (janitor.getUses()>0 && Metadata.night>1) janitorTarget="yes";
-                    else if(janitor.isRoleBlocked) janitorTarget="Roleblocked";
-                    else if(Metadata.night==1) janitorTarget="";
-                    else janitorTarget="no";
-                }
-                else janitorTarget="";
-                mafiaTarget = "";
-                if (kDrop.getVisibility()==View.VISIBLE) mafiaTarget = kDrop.getSelectedItem().toString();
-                else mafiaTarget = "N1";
-                Intent intent = new Intent(Page10.this, Page11.class);
-                intent.putExtra("action", new String[]{blackmailerTarget, consigliereTarget, janitorTarget, mafiaTarget});
-                startActivity(intent);
+            if (RoleList.stillAlive(RoleList.janitor)){
+                assert janitor != null;
+                if (janitor.getUses()>0 && Metadata.night>1) janitorTarget="yes";
+                else if(janitor.isRoleBlocked) janitorTarget="Roleblocked";
+                else if(Metadata.night==1) janitorTarget="";
+                else janitorTarget="no";
             }
+            else janitorTarget="";
+            mafiaTarget = "";
+            if (kDrop.getVisibility()==View.VISIBLE) mafiaTarget = kDrop.getSelectedItem().toString();
+            else mafiaTarget = "N1";
+            Intent intent = new Intent(Page10.this, Page11.class);
+            intent.putExtra("action", new String[]{blackmailerTarget, consigliereTarget, janitorTarget, mafiaTarget});
+            startActivity(intent);
         });
 
     }

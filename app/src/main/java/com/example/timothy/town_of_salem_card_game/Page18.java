@@ -86,22 +86,19 @@ public class Page18 extends AppCompatActivity {
 
 
 
-        nButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (invDrop.getVisibility()==View.VISIBLE) {
-                    String selection = invDrop.getSelectedItem().toString();
-                    if (!selection.equals("Roleblocked") && !selection.equals("Pass")) {
-                        for (Person person : alivePlayers) {
-                            if (Objects.equals(person.getKeyword(), "Investigator")) {
-                                person.addTarget(Metadata.findPerson("Name", selection));
-                                person.useUse();
-                            }
+        nButton.setOnClickListener(v -> {
+            if (invDrop.getVisibility()==View.VISIBLE) {
+                String selection = invDrop.getSelectedItem().toString();
+                if (!selection.equals("Roleblocked") && !selection.equals("Pass")) {
+                    for (Person person : alivePlayers) {
+                        if (Objects.equals(person.getKeyword(), "Investigator")) {
+                            person.addTarget(Metadata.findPerson("Name", selection));
+                            person.useUse();
                         }
                     }
                 }
-                startActivity(RoleList.toPage(Page18.this,"Doctor"));
             }
+            startActivity(RoleList.toPage(Page18.this,"Doctor"));
         });
 
 

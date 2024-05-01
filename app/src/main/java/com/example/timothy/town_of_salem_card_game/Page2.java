@@ -41,15 +41,12 @@ BUTTON SECTION: The following code handles the buttons and their actions.
 
     public void init(){
         confirmButton = findViewById(R.id.confirmButton);
-        confirmButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Metadata.allPlayers.size()>=1) {
-                    Intent intent = new Intent(Page2.this, Page3.class);
-                    startActivity(intent);
-                }
-                else Toast.makeText(Page2.this,"Must have at least one person entered to continue.", Toast.LENGTH_LONG).show();
+        confirmButton.setOnClickListener(v -> {
+            if (!Metadata.allPlayers.isEmpty()) {
+                Intent intent = new Intent(Page2.this, Page3.class);
+                startActivity(intent);
             }
+            else Toast.makeText(Page2.this,"Must have at least one person entered to continue.", Toast.LENGTH_LONG).show();
         });
 
         addPlayerButton = findViewById(R.id.addButton);
@@ -65,7 +62,7 @@ BUTTON SECTION: The following code handles the buttons and their actions.
                     Metadata.allPlayers.add(person);
                     if (Objects.equals(person.getAlignment(), "Mafia")) Metadata.mafiaAlive.add(person);
                     confirmationView = findViewById(R.id.commentBox);
-                    confirmationView.setText(String.format("%s the %s has been added to the game.",name,role.toString()));
+                    confirmationView.setText(String.format("%s the %s has been added to the game.",name, role));
                     //Reset fields for the next person
                     nameEntryTextView.setText("");
                     roleDrop.setSelection(0);

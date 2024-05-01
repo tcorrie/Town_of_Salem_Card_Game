@@ -2,20 +2,128 @@
     <string name="app_name">Town_of_Salem_Card_Game</string>
     <string name="welcomeSign1">Welcome to Town of Salem:</string>
     <string name="welcomeSign2">Card Game!</string>
+    <string name="load">Load</string>
+    <string name="loadHelp">Load a premade game.</string>
     <string name="startGame">Start Game</string>
     <string name="nameLabel">Name</string>
     <string name="roleLabel">Role</string>
     <string name="addPlayer">Add Player</string>
+    <string name="nameChoice">Enter player\'s name.</string>
+    <string name="roleChoice">Pick a player\'s role.</string>
+
+    <string name="saveChanges">Save Changes</string>
+    <string name="editPlayer">Edit Player</string>
+    <string name="virtualSum">Virtual Value Sum:</string>
+    <string name="goBack">Go Back</string>
+
+    <string name="begin">Begin</string>
+    <string name="nowBegin">Now beginning night</string>
+
     <string name="confirmPlayers">Confirm Players</string>
     <string name="startGame1">Start Game</string>
-    <string name="endgameresult">Winning Conditions:
-Town wins if all the mafia, the werewolf, serial killer, and witch are dead.
-Mafia wins if all the town, the werewolf, serial killer, and witch are dead.
-The werewolf wins if everyone is dead (the jesters, executioner, and pirate can be spared).
-The serial killer wins if everyone is dead (the jesters, executioner, and pirate can be spared).
-The jester wins if he/she is lynched, and the executioner wins if their target is lynched.
-The pirate wins if he/she wins two duels.
-If one of these conditions is not met, then it is a draw.</string>
+    <string name="noAttackPirate">The pirate decided not to attack.</string>
+    <string name="noSeanceMedium">You have chosen not to seance.</string>
+    <string name="noDeadToSeance">No one is dead yet. Pass automatically.</string>
+    <string name="deadPlayers">Dead Players:</string>
+    <string name="continueGame">Continue</string>
+    <string name="endGame">End Game</string>
+    <string name="daytime">Daytime:</string>
+    <string name="mayorReveal">Mayor Reveal</string>
+    <string name="beginNightPhase">Begin Night Phase</string>
+
+    <string name="roleblocked">Roleblocked.</string>
+
+    <string name="investigate">Investigate</string>
+    <string name="kill">Kill</string>
+    <string name="stab">Stab</string>
+    <string name="blackmail">Blackmail</string>
+    <string name="maul">Maul</string>
+    <string name="curse">Curse</string>
+    <string name="shoot">Shoot</string>
+    <string name="interrogate">Interrogate</string>
+    <string name="heal">Heal</string>
+    <string name="guard">Guard</string>
+    <string name="target">Target</string>
+    <string name="learn">Learn</string>
+    <string name="lynch">Lynch</string>
+    <string name="haunt">Haunt</string>
+    <string name="plunder">Plunder</string>
+    <string name="seance">Seance</string>
+    <string name="seance1">Seance!</string>
+    <string name="alert">Alert</string>
+
+    <string name="blackmailer">Blackmailer</string>
+    <string name="consigliere">Consigliere</string>
+    <string name="janitor">Janitor</string>
+    <string name="serialKiller">Serial Killer</string>
+    <string name="werewolf">Werewolf</string>
+    <string name="witch">Witch</string>
+    <string name="vigilante">Vigilante</string>
+    <string name="sheriff">Sheriff</string>
+    <string name="deputy">Deputy</string>
+    <string name="investigator">Investigator</string>
+    <string name="doctor">Doctor</string>
+    <string name="bodyguard">Bodyguard</string>
+    <string name="executioner">Executioner</string>
+    <string name="amnesiac">Amnesiac</string>
+    <string name="jester">Jester</string>
+    <string name="pirate">Pirate</string>
+    <string name="medium">Medium</string>
+    <string name="veteran">Veteran</string>
+
+    <string name="blackmailChoice">Pick someone to blackmail or pass.</string>
+    <string name="killChoice">Pick someone to kill or pass.</string>
+    <string name="invChoice">Pick someone to investigate or pass.</string>
+    <string name="stabChoice">Pick someone to stab.</string>
+    <string name="curseChoice">Pick someone to curse.</string>
+    <string name="maulChoice1">Pick 1st person to maul.</string>
+    <string name="maulChoice2">Pick 2nd person to stab.</string>
+    <string name="shootChoice">Pick someone to shoot or pass.</string>
+    <string name="maulWarning">Must maul 2 adjacent players.</string>
+    <string name="interrogateChoice">Pick someone to interrogate.</string>
+    <string name="investigateChoice">Pick someone to investigate or pass.</string>
+    <string name="healChoice">Pick someone to heal.</string>
+    <string name="guardChoice">Pick someone to guard.</string>
+    <string name="targetChoice">Pick someone to target.</string>
+    <string name="learnChoice">Pick a role to learn.</string>
+    <string name="lynchChoice">Pick someone to lynch or pass.</string>
+    <string name="hauntChoice">Pick someone to haunt.</string>
+    <string name="plunderChoice">Pick someone to plunder or pass.</string>
+    <string name="seanceChoice">Pick someone to seance.</string>
+
+    <string name="roleblockedBlackmailer">Blackmailer is roleblocked and cannot blackmail tonight.</string>
+    <string name="roleblockedConsigliere">Consigliere is roleblocked and cannot investigate tonight.</string>
+    <string name="roleblockedJanitor">Janitor is roleblocked and cannot clean tonight.</string>
+    <string name="noInterrogateSheriff">You are not interrogating anyone.</string>
+    <string name="sheriffTargetEvil">Your target is Evil.</string>
+    <string name="roleblockedSheriff">Roleblocked: cannot interrogate tonight.</string>
+    <string name="action">Action!</string>
+    <string name="next">Next</string>
+    <string name="exit">Exit</string>
+    <string name="duel">Duel</string>
+    <string name="attack">Attack</string>
+    <string name="OR">OR</string>
+    <string name="pass">Pass</string>
+    <string name="chooseWeapon">Choose Your Weapon:</string>
+    <string name="rapier">Rapier</string>
+    <string name="pistol">Pistol</string>
+    <string name="scimitar">Scimitar</string>
+
+    <string name="defender">Defender</string>
+    <string name="defense">Choose Your Defense:</string>
+    <string name="chainmail">Chainmail</string>
+    <string name="sidestep">Sidestep</string>
+    <string name="backpedal">Backpedal</string>
+    <string name="battle">Battle</string>
+    <string name="result">Result</string>
+
+    <string name="veteranNoAlert">You have decided to stay at home tonight.</string>
+    <string name="veteranAlert">You have decided to go on alert tonight.</string>
+
+    <string name="witchStandard">Witch - Standard Rules</string>
+    <string name="witchHouse">Witch - House Rules</string>
+    <string name="witchRules">Which Witch rules would you like to activate?</string>
+
     <string-array name="roleList">
 
     </string-array>

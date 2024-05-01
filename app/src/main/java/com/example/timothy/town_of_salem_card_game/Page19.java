@@ -1,8 +1,8 @@
 package com.example.timothy.town_of_salem_card_game;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -36,6 +36,34 @@ public class Page19 extends AppCompatActivity {
         assert doctor != null;
         docName.setText(doctor.getName());
 
+        final ArrayAdapter<String> adapter = getStringArrayAdapter(doctor);
+        hlDrop.setAdapter(adapter);
+
+        nButton.setOnClickListener(v -> {
+            String selection = hlDrop.getSelectedItem().toString();
+            if(Objects.equals(doctor.getName(),selection)) Metadata.changeCanHealSelf();
+            if (!selection.equals("Roleblocked") && !selection.equals("Pass")){
+                for (Person person: alivePlayers){
+                    if(Objects.equals(person.getName(), selection)) {
+                        person.addStatus("heal");
+                        Metadata.setPersonHealed(person);
+                    }
+                    if(Objects.equals(person.getKeyword(), "Doctor")) {
+                        person.addTarget(Metadata.findPerson("Name",selection));
+                        Metadata.lastHealed = Metadata.findPerson("Name",selection);
+                    }
+                }
+
+            }
+            else Metadata.lastHealed=Metadata.noOne;
+            startActivity(RoleList.toPage(Page19.this,"Bodyguard"));
+        });
+
+
+    }
+
+    @NonNull
+    private ArrayAdapter<String> getStringArrayAdapter(Person doctor) {
         List<String> targetList = new ArrayList<>();
         if (!doctor.isRoleBlocked){
             targetList.add("Pass");
@@ -54,32 +82,7 @@ public class Page19 extends AppCompatActivity {
 
         final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,targetList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        hlDrop.setAdapter(adapter);
-
-        nButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String selection = hlDrop.getSelectedItem().toString();
-                if(Objects.equals(doctor.getName(),selection)) Metadata.changeCanHealSelf();
-                if (!selection.equals("Roleblocked") && !selection.equals("Pass")){
-                    for (Person person: alivePlayers){
-                        if(Objects.equals(person.getName(), selection)) {
-                            person.addStatus("heal");
-                            Metadata.setPersonHealed(person);
-                        }
-                        if(Objects.equals(person.getKeyword(), "Doctor")) {
-                            person.addTarget(Metadata.findPerson("Name",selection));
-                            Metadata.lastHealed = Metadata.findPerson("Name",selection);
-                        }
-                    }
-
-                }
-                else Metadata.lastHealed=Metadata.noOne;
-                startActivity(RoleList.toPage(Page19.this,"Bodyguard"));
-            }
-        });
-
-
+        return adapter;
     }
 }
 

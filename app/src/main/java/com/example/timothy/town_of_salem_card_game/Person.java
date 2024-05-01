@@ -40,7 +40,7 @@ public class Person extends Role {
     public void deleteStatus(String str){
         if (this.status.contains(str)){this.status = this.status.replace(str,"");}
     }
-    public String description(){return (String.format("%s (%s)",this.name, this.toString()));}
+    public String description(){return (String.format("%s (%s)",this.name, this));}
     public void cleaned(){this.isCleaned=true;}
     public boolean isCleaned(){return this.isCleaned;}
 

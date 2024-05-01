@@ -8,15 +8,14 @@
 
     <Button
         android:id="@+id/nextButton13"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Next"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:textAllCaps="false" />
 
@@ -27,8 +26,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:text="Must maul 2 adjacent players."
-        android:textSize='24dp'
+        android:text="@string/maulWarning"
+        android:textSize='24sp'
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/maulDrop2" />
@@ -36,10 +35,11 @@
     <Spinner
         android:id="@+id/maulDrop2"
         android:layout_width="208dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         android:background="@android:drawable/btn_dropdown"
+        android:contentDescription="@string/maulChoice2"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/maulDrop1" />
@@ -47,13 +47,13 @@
     <Spinner
         android:id="@+id/maulDrop1"
         android:layout_width="208dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="32dp"
         android:background="@android:drawable/btn_dropdown"
+        android:contentDescription="@string/maulChoice1"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/werewolfName" />
+        app:layout_constraintTop_toTopOf="@+id/maulLabel" />
 
     <TextView
         android:id="@+id/maulLabel"
@@ -61,8 +61,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="Maul"
-        android:textSize='24dp'
+        android:text="@string/maul"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/werewolfLabel" />
 
@@ -79,12 +79,12 @@
 
     <TextView
         android:id="@+id/werewolfLabel"
-        android:layout_width="142dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Werewolf"
-        android:textSize='24dp'
+        android:text="@string/werewolf"
+        android:textSize='24sp'
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -39,7 +39,7 @@ public class Page8 extends AppCompatActivity {
         medName.setText(medium.getName());
 
 
-        if(Metadata.deadPlayers.size()>0 && !medium.isRoleBlocked){
+        if(!Metadata.deadPlayers.isEmpty() && !medium.isRoleBlocked){
             List<String> deadList = new ArrayList<>();
             deadList.add("Pass");
             for (Person person: deadPlayers) {
@@ -49,60 +49,42 @@ public class Page8 extends AppCompatActivity {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             seaTarName.setAdapter(adapter);
 
-            seaButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String status = "";
-                    String theirRole = "";
-                    String seanced = seaTarName.getSelectedItem().toString();
-                    if (seanced.equals("Pass")) seaInfo.setText((String)"You have chosen to pass.");
-                    else {
-                        for (Person person : deadPlayers) {
-                            if (Objects.equals(person.getName(), seanced)) {
-                                status = person.getStatus();
-                                theirRole = person.getKeyword();
-                            }
+            seaButton.setOnClickListener(v -> {
+                String status = "";
+                String theirRole = "";
+                String seanced = seaTarName.getSelectedItem().toString();
+                if (seanced.equals("Pass")) seaInfo.setText(R.string.noSeanceMedium);
+                else {
+                    for (Person person : deadPlayers) {
+                        if (Objects.equals(person.getName(), seanced)) {
+                            status = person.getStatus();
+                            theirRole = person.getKeyword();
                         }
-                        showSeanceResult(seaInfo,status,theirRole,seanced);
                     }
+                    showSeanceResult(seaInfo,status,theirRole,seanced);
                 }
             });
 
-            nexButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(RoleList.toPage(Page8.this,"Veteran"));
-                }
-            });
+            nexButton.setOnClickListener(v -> startActivity(RoleList.toPage(Page8.this,"Veteran")));
 
 
         }
-        else if (Metadata.deadPlayers.size()==0){
+        else if (Metadata.deadPlayers.isEmpty()){
             medName.setText(medium.getName());
             seaTarName.setVisibility(View.INVISIBLE);
-            seaInfo.setText((String)"No one is dead yet. Pass automatically.");
+            seaInfo.setText(R.string.noDeadToSeance);
             seaButton.setVisibility(View.INVISIBLE);
             nexButton = findViewById(R.id.nextButton8);
-            nexButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(RoleList.toPage(Page8.this,"Veteran"));
-                }
-            });
+            nexButton.setOnClickListener(v -> startActivity(RoleList.toPage(Page8.this,"Veteran")));
 
         }
         else{
             medName.setText(Objects.requireNonNull(Metadata.findPerson("Role", "Medium")).getName());
             seaTarName.setVisibility(View.INVISIBLE);
-            seaInfo.setText((String)"Roleblocked.");
+            seaInfo.setText(R.string.roleblocked);
             seaButton.setVisibility(View.INVISIBLE);
             nexButton = findViewById(R.id.nextButton8);
-            nexButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(RoleList.toPage(Page8.this,"Veteran"));
-                }
-            });
+            nexButton.setOnClickListener(v -> startActivity(RoleList.toPage(Page8.this,"Veteran")));
         }
 
 
@@ -113,14 +95,14 @@ public class Page8 extends AppCompatActivity {
         tv.setText(String.format("%s was a %s.\n",name,theirRole));
 
         ArrayList<Person> killedBy = new ArrayList<>();
-        if (status.contains("Mafia") && Metadata.mafiaAlive.size()>0) killedBy.addAll(Metadata.mafiaAlive);
+        if (status.contains("Mafia") && !Metadata.mafiaAlive.isEmpty()) killedBy.addAll(Metadata.mafiaAlive);
         if (status.contains("Pirate") && RoleList.stillAlive(RoleList.pirate))  killedBy.add(Metadata.findPerson("Role","Pirate"));
         else if (status.contains("Werewolf") && RoleList.stillAlive(RoleList.werewolf)) killedBy.add(Metadata.findPerson("Role","Werewolf"));
         else if (status.contains("Serial Killer") && RoleList.stillAlive(RoleList.serial_killer)) killedBy.add(Metadata.findPerson("Role","Serial Killer"));
         else if (status.contains("Veteran") && RoleList.stillAlive(RoleList.veteran)) killedBy.add(Metadata.findPerson("Role","Veteran"));
         else if (status.contains("Vigilante") && RoleList.stillAlive(RoleList.vigilante)) killedBy.add(Metadata.findPerson("Role","Vigilante"));
 
-       if (killedBy.size()>0){
+       if (!killedBy.isEmpty()){
            int aliveSize = Metadata.alivePlayers.size();
            int extraOptions = RoleList.extraUses(aliveSize);
            Random rand = new Random();
@@ -139,7 +121,7 @@ public class Page8 extends AppCompatActivity {
                }
                if (killerFlag && !mediumFlag) flag = false;
            }
-           tv.append((String)"Potential killers:\n");
+           tv.append("Potential killers:\n");
            for (int i:indices){
                tv.append(String.format("%s\n",alivePlayers.get(i).getName()));
            }

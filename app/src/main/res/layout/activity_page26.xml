@@ -8,51 +8,50 @@
 
     <Button
         android:id="@+id/endgameButton26"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="End Game"
+        android:text="@string/endGame"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:textAllCaps="false" />
 
     <Button
         android:id="@+id/continueButton26"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Begin Night Phase"
+        android:text="@string/beginNightPhase"
         app:layout_constraintBottom_toTopOf="@+id/endgameButton26"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:textAllCaps="false" />
 
     <TextView
-        android:id="@+id/rolewas26"
+        android:id="@+id/roleWas26"
         android:layout_width="0dp"
         android:layout_height="62dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hasbeenlynched26" />
+        app:layout_constraintTop_toBottomOf="@+id/hasBeenLynched26" />
 
     <TextView
-        android:id="@+id/hasbeenlynched26"
+        android:id="@+id/hasBeenLynched26"
         android:layout_width="0dp"
         android:layout_height="62dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

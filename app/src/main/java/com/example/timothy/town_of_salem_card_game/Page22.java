@@ -1,9 +1,8 @@
 package com.example.timothy.town_of_salem_card_game;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -50,38 +49,35 @@ public class Page22 extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         lrnDrop.setAdapter(adapter);
 
-        nButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String selection = lrnDrop.getSelectedItem().toString();
-                    for (Person person: alivePlayers) {
-                        if (Objects.equals(person.getKeyword(), "Amnesiac")) {
-                            Metadata.updateRole(amnesiac.getName(), selection);
-                            break;
+        nButton.setOnClickListener(v -> {
+            String selection = lrnDrop.getSelectedItem().toString();
+                for (Person person: alivePlayers) {
+                    if (Objects.equals(person.getKeyword(), "Amnesiac")) {
+                        Metadata.updateRole(amnesiac.getName(), selection);
+                        break;
+                    }
+                }
+                for (Person person: alivePlayers){
+                    if (Objects.equals(person.getKeyword(),selection)){
+                        int extraUses = RoleList.extraUses(Metadata.numPlayers);
+                        switch (person.getKeyword()) {
+                            case "Vigilante":
+                                person.setUses(1 + extraUses);
+                                break;
+                            case "Investigator":
+                            case "Veteran":
+                            case "Consigliere":
+                            case "Janitor":
+                                person.setUses(2 + extraUses);
+                                break;
+                            default:
+                                person.setUses(99);
+                                break;
                         }
                     }
-                    for (Person person: alivePlayers){
-                        if (Objects.equals(person.getKeyword(),selection)){
-                            int extraUses = RoleList.extraUses(Metadata.numPlayers);
-                            switch (person.getKeyword()) {
-                                case "Vigilante":
-                                    person.setUses(1 + extraUses);
-                                    break;
-                                case "Investigator":
-                                case "Veteran":
-                                case "Consigliere":
-                                case "Janitor":
-                                    person.setUses(2 + extraUses);
-                                    break;
-                                default:
-                                    person.setUses(99);
-                                    break;
-                            }
-                        }
-                    }
-                Intent intent = new Intent(Page22.this,Page23.class);
-                startActivity(intent);
-            }
+                }
+            Intent intent = new Intent(Page22.this,Page23.class);
+            startActivity(intent);
         });
 
 
