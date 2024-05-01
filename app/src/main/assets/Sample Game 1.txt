@@ -1,0 +1,8 @@
+Jeff,Consigliere
+Rob,Townie
+Doug,Mafioso
+Pier,Jester
+Shary,Sheriff
+Mel,Townie
+Tammy,Vigilante
+Victor,Survivor

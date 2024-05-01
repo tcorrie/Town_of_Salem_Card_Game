@@ -1,0 +1,16 @@
+George,Blackmailer
+Pia,Godfather
+Beck,Deputy
+Aidan,Medium
+Mo,Townie
+Liam,Executioner
+Bart,Pirate
+Wendy,Townie
+Ulsa,Investigator
+Cindy,Mayor
+Harold,Townie
+Heather,Survivor
+Nix,Amnesiac
+Polly,Townie
+Xavier,Sheriff
+Will,Bodyguard

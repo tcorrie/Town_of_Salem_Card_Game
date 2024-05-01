@@ -1,0 +1,5 @@
+Xess,Townie
+Yuri,Politician
+Zavar,Witch
+Addy,Townie
+Barry,Werewolf

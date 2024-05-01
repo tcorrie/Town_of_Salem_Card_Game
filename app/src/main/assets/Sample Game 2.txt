@@ -1,0 +1,11 @@
+Jack,Mayor
+Cole,Doctor
+Alice,Townie
+Youf,Mafioso
+Mike,Veteran
+Sharon,Townie
+Sally,Consigliere
+Tim,Jester
+Art,Sheriff
+Alex,Jester
+Annie,Janitor

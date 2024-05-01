@@ -1,0 +1,7 @@
+Yivon,Townie
+Bella,Townie
+Vic,Bodyguard
+Poe,Mafioso
+Rey,Serial Killer
+Nie,Werewolf
+Zach,Pirate

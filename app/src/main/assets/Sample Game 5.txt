@@ -1,0 +1,5 @@
+Katy,Townie
+Harry,Veteran
+Justin,Janitor
+Nepa,Mafioso
+Georgia,Townie

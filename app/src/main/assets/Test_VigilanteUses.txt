@@ -1,0 +1,4 @@
+Brock,Townie
+Amy,Vigilante
+Sharon,Jester
+Misty,Witch

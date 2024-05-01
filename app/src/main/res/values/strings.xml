@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Town_of_Salem_Card_Game</string>
+    <string name="welcomeSign1">Welcome to Town of Salem:</string>
+    <string name="welcomeSign2">Card Game!</string>
+    <string name="startGame">Start Game</string>
+    <string name="nameLabel">Name</string>
+    <string name="roleLabel">Role</string>
+    <string name="addPlayer">Add Player</string>
+    <string name="confirmPlayers">Confirm Players</string>
+    <string name="startGame1">Start Game</string>
+    <string name="endgameresult">Winning Conditions:
+Town wins if all the mafia, the werewolf, serial killer, and witch are dead.
+Mafia wins if all the town, the werewolf, serial killer, and witch are dead.
+The werewolf wins if everyone is dead (the jesters, executioner, and pirate can be spared).
+The serial killer wins if everyone is dead (the jesters, executioner, and pirate can be spared).
+The jester wins if he/she is lynched, and the executioner wins if their target is lynched.
+The pirate wins if he/she wins two duels.
+If one of these conditions is not met, then it is a draw.</string>
+    <string-array name="roleList">
+
+    </string-array>
+</resources>

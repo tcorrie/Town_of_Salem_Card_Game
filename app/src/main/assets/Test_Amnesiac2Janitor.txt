@@ -1,0 +1,7 @@
+Des,Townie
+Martha,Mafioso
+Bert,Consigliere
+King,Townie
+Laura,Amnesiac
+Devin,Townie
+Nicki,Townie

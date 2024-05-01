@@ -1,0 +1,12 @@
+Graf,Pirate
+Joe,Townie
+Bob,Townie
+Sally,Mafioso
+Art,Medium
+Alice,Godfather
+Jessica,Townie
+Neraj,Townie
+Sierra,Werewolf
+Sam,Serial Killer
+Pax,Townie
+Nate,Townie

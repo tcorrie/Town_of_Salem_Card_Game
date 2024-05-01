@@ -1,0 +1,4 @@
+Wesley,Consigliere
+Destiny,Townie
+Hersh,Pirate
+Luke,Godfather

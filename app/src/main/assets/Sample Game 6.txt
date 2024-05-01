@@ -1,0 +1,12 @@
+Tom,Survivor
+Jerry,Bodyguard
+Rex,Survivor
+Charles,Townie
+Tegan,Townie
+Kid,Pirate
+Ulsa,Executioner
+Bruno,Medium
+Yves,Townie
+Sylvester,Doctor
+Tracy,Serial Killer
+Herman,Townie

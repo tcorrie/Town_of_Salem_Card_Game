@@ -1,0 +1,11 @@
+Ashton,Medium
+Danny,Werewolf
+Nicki,Vigilante
+Stan,Investigator
+Max,Consigliere
+Boris,Mafioso
+Val,Townie
+Opal,Doctor
+Ivan,Janitor
+Kellan,Survivor
+Damien,Townie

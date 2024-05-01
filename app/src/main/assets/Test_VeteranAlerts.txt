@@ -1,0 +1,4 @@
+Xavier,Townie
+Ida,Mafioso
+Lopez,Mafioso
+Hyman,Veteran
